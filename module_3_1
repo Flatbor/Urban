@@ -1,0 +1,30 @@
+calls = 0       # переменная счетчика вызова вне функции
+
+
+def coutn_calls():      # функция подсчета вызова функций
+    global calls        # значение из глобальной области видимости
+    calls += 1  
+    return calls
+
+
+def string_info(string):        # функция возвращает: длину строки, строку в верхнем и нижнем регистре
+    coutn_calls()               # отметка в счетчике вызова функций
+    list = [len(string), string.upper(), string.lower()]
+    return list
+
+
+def is_contains(string, list_to_search):                    # функция ищет строку в списке и возвращает логическое значение
+    low_strings = [x.lower() for x in list_to_search]       # приведение строки и списка поиска к нижнему регистру
+    coutn_calls()                                           # отметка в счетчике вызова функций
+    for i in list_to_search:
+        if string.lower() in low_strings:
+            return True
+        else:
+            return False
+
+
+print(string_info('Capybara'))
+print(string_info('Armageddon'))
+print(is_contains('Urban', ['ban', 'BaNaN', 'urBAN']))
+print(is_contains('cycle', ['recycling', 'cyclic']))
+print(calls)
