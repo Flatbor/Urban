@@ -1,0 +1,17 @@
+    # 1.Функция с параметрами по умолчанию:
+def print_params(a = 1, b = 'string', c = True):        # Создайте функцию со значениями по умолчанию
+    print(a, b, c)                                      # Функция должна выводить эти параметры
+
+    
+print_params()                                          # вызов функции без аргументов
+print_params(b = 25, c = [1, 2, 3])                     # Вызов с аргументами
+
+    # 2.Распаковка параметров:
+value_list = [45.1, 12, 'end']                          # Создайте список values_list с тремя элементами разных типов
+value_dict = {'a': 1, 'b': 12, 'c': 123}                # Создайте словарь values_dict с тремя ключами, соответствующими параметрам функции
+print_params(*value_list)                               # Передайте values_list и values_dict в функцию print_params
+print_params(**value_dict)                              # Передайте values_list и values_dict в функцию print_params
+
+    # 3.Распаковка + отдельные параметры:
+value_list_2 = {'a': 13, 'b': 'string'}                 # Создайте список values_list_2 с двумя элементами разных типов
+print_params(*values_list_2, 42)                        # Проверьте, работает ли print_params(*values_list_2, 42)
